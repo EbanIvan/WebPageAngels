@@ -1,0 +1,178 @@
+  /* Basic Styles */
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            line-height: 1.6;
+            color: #333;
+        }
+html {
+    scroll-behavior: smooth;
+}
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            overflow: hidden;
+            padding: 0 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #007BFF;
+        }
+
+        h1, h2, h3 {
+            color: #222;
+        }
+
+        /* Header */
+        .header {
+            background: #fff;
+            color: #333;
+            padding: 1rem 0;
+            border-bottom: 1px solid #eee;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+        }
+
+        .nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .nav li {
+            margin-left: 20px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: #b9b9b9;
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: auto;
+        }
+          .hero {
+            background-image: url('banner1.jpg');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-color: #b9b9b9; /* fallback color */
+            position: relative;
+        }
+        .hero .overlay {
+            position: absolute;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(0,0,0,0.4); /* semi-transparent overlay */
+            z-index: 1;
+        }
+        .hero .container {
+            position: relative;
+            z-index: 2;
+        }
+.aboutUsTittle {
+  color: white;
+}
+.aboutUs {
+    color: white;
+}
+        .cta-button {
+            display: inline-block;
+            background: #007BFF;
+            color: #fff;
+            padding: 12px 25px;
+            margin-top: 20px;
+            border-radius: 5px;
+            transition: background 0.3s ease;
+        }
+
+        .cta-button:hover {
+            background: #0056b3;
+        }
+
+        /* Main Sections */
+        .section {
+            padding: 60px 0;
+        }
+
+        .about, .contact-section {
+            background: #fff;
+        }
+
+        .services {
+            background: #f9f9f9;
+            text-align: center;
+        }
+
+        .cards {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            margin-top: 30px;
+        }
+
+        .card {
+            background: #fff;
+            border: 1px solid #ddd;
+            padding: 20px;
+            margin: 10px;
+            border-radius: 8px;
+            flex: 1 1 250px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Contact Form */
+        .contact-form {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+
+        .contact-form button {
+            background: #007BFF;
+            color: #fff;
+            padding: 12px 20px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+.contact-form button:hover {
+            background: #0056b3;
+        }
+        /* Footer */
+        .footer {
+            background: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
