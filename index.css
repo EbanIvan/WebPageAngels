@@ -1,13 +1,15 @@
-  /* Basic Styles */
+/* Basic Styles */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
             margin: 0;
             line-height: 1.6;
             color: #333;
         }
-html {
-    scroll-behavior: smooth;
-}
+
+        html {
+            scroll-behavior: smooth;
+        }
+
         .container {
             max-width: 1100px;
             margin: auto;
@@ -42,8 +44,9 @@ html {
         }
 
         .logo {
-            font-size: 1.5rem;
-            font-weight: bold;
+            height: 70px;
+            width: auto;
+            display: block;
         }
 
         .nav ul {
@@ -62,42 +65,37 @@ html {
             background: #b9b9b9;
             text-align: center;
             padding: 100px 0;
-        }
-
-        .hero h1 {
-            font-size: 3rem;
-            margin-bottom: 10px;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            margin: auto;
-        }
-          .hero {
-            background-image: url('Gemini_Generated_Image_cgzyeecgzyeecgzy.png');
+            background-image: url('banner7.jpg');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
             background-color: #b9b9b9; /* fallback color */
             position: relative;
         }
+
         .hero .overlay {
             position: absolute;
-            top: 0; left: 0; right: 0; bottom: 0;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
             background: rgba(0,0,0,0.4); /* semi-transparent overlay */
             z-index: 1;
         }
+
         .hero .container {
             position: relative;
             z-index: 2;
         }
-.aboutUsTittle {
-  color: white;
-}
-.aboutUs {
-    color: white;
-}
+
+        .aboutUsTittle {
+            color: white;
+        }
+
+        .aboutUs {
+            color: white;
+        }
+
         .cta-button {
             display: inline-block;
             background: #007BFF;
@@ -149,7 +147,8 @@ html {
             margin: auto;
         }
 
-        .contact-form input, .contact-form textarea {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
             padding: 10px;
             margin-bottom: 15px;
@@ -165,9 +164,11 @@ html {
             border-radius: 5px;
             cursor: pointer;
         }
-.contact-form button:hover {
+
+        .contact-form button:hover {
             background: #0056b3;
         }
+
         /* Footer */
         .footer {
             background: #333;
@@ -175,6 +176,4 @@ html {
             text-align: center;
             padding: 20px 0;
             font-size: 0.9rem;
-
         }
-
