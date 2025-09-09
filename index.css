@@ -75,7 +75,7 @@ html {
             margin: auto;
         }
           .hero {
-            background-image: url('banner1.jpg');
+            background-image: url('banner7.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
@@ -175,4 +175,5 @@ html {
             text-align: center;
             padding: 20px 0;
             font-size: 0.9rem;
+
         }
