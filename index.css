@@ -168,7 +168,11 @@
         .contact-form button:hover {
             background: #0056b3;
         }
-
+        .field {
+            max-width: 90vw;
+            width: 100%;
+            box-sizing: border-box;
+        }
         /* Footer */
         .footer {
             background: #333;
@@ -177,5 +181,6 @@
             padding: 20px 0;
             font-size: 0.9rem;
         }
+
 
 
