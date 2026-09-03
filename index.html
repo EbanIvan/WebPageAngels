@@ -676,6 +676,20 @@
         });
     })();
 
+    // Google Ads lead-form conversion tracking
+    function gtag_report_conversion(url) {
+        var callback = function () {
+            if (typeof(url) != 'undefined') {
+                window.location = url;
+            }
+        };
+        gtag('event', 'conversion', {
+            'send_to': 'AW-18405194462/xuWcCLGOoe0cEN71o8hE',
+            'event_callback': callback
+        });
+        return false;
+    }
+
     // Contact form: progressive enhancement over the plain action/method fallback
     document.getElementById('contactForm').addEventListener('submit', async function (e) {
         e.preventDefault();
@@ -704,12 +718,8 @@
             status.textContent = 'Съобщението е изпратено успешно! Ще се свържем с вас скоро.';
             form.reset();
 
-            // Track the lead as an Ads conversion
-            if (typeof gtag === 'function') {
-                gtag('event', 'conversion', {
-                    'send_to': 'AW-18405194462' // TODO: append '/CONVERSION_LABEL' from your Ads account
-                });
-            }
+            // Track the lead as a Google Ads conversion (no redirect needed — form stays on page)
+            gtag_report_conversion();
         } catch (err) {
             status.style.color = '#dc2626';
             status.textContent = 'Възникна грешка. Моля, пишете директно на angelsenglish777@abv.bg';
