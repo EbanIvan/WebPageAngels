@@ -5,7 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Английски език с ваучери за всички заети лица. Научете повече за проекта Angels 77 и се свържете с нас.">
     <title>Angels 77 — Английски с ваучери</title>
+
+    <!-- Open Graph / social preview -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Angels 77 — Английски език с ваучери">
+    <meta property="og:description" content="Безплатно обучение по английски език за заети и самостоятелно заети лица. Съфинансирано от Европейския социален фонд.">
+    <meta property="og:image" content="hero.jpg">
+    <meta property="og:locale" content="bg_BG">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18405194462"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18405194462');
+    </script>
+
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -35,6 +55,17 @@
         }
 
         a { text-decoration: none; color: inherit; }
+
+        /* Visually-hidden but screen-reader accessible */
+        .sr-only {
+            position: absolute;
+            width: 1px; height: 1px;
+            padding: 0; margin: -1px;
+            overflow: hidden;
+            clip: rect(0,0,0,0);
+            white-space: nowrap;
+            border: 0;
+        }
 
         /* ── HEADER ── */
         .header {
@@ -67,6 +98,30 @@
             transition: border-color 0.2s, color 0.2s;
         }
         .nav a:hover { color: var(--gold); border-color: var(--gold); }
+
+        .nav-toggle {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            gap: 5px;
+            width: 40px;
+            height: 40px;
+            background: none;
+            border: none;
+            cursor: pointer;
+            padding: 0;
+        }
+        .nav-toggle span {
+            display: block;
+            height: 2px;
+            width: 100%;
+            background: var(--navy);
+            border-radius: 2px;
+            transition: transform 0.2s, opacity 0.2s;
+        }
+        .nav-toggle[aria-expanded="true"] span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-toggle[aria-expanded="true"] span:nth-child(2) { opacity: 0; }
+        .nav-toggle[aria-expanded="true"] span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         /* ── HERO ── */
         .hero {
@@ -332,6 +387,14 @@
             background: var(--white);
         }
         .contact-form textarea { resize: vertical; min-height: 130px; }
+        /* Honeypot field must stay invisible to humans, reachable to bots */
+        .hp-field {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            overflow: hidden;
+        }
         .send-btn {
             background: var(--navy);
             color: var(--white);
@@ -368,8 +431,24 @@
         /* ── RESPONSIVE ── */
         @media (max-width: 768px) {
             .header .container { padding: 0.5rem 1rem; }
-            .nav ul { gap: 1rem; }
-            .nav a { font-size: 0.8rem; }
+            .nav-toggle { display: flex; }
+            .nav {
+                position: absolute;
+                top: 100%;
+                left: 0;
+                right: 0;
+                background: var(--white);
+                border-bottom: 2px solid var(--gold);
+                box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+                max-height: 0;
+                overflow: hidden;
+                transition: max-height 0.25s ease;
+            }
+            .nav.is-open { max-height: 320px; }
+            .nav ul { flex-direction: column; gap: 0; padding: 0.5rem 1rem 1rem; }
+            .nav ul li { border-bottom: 1px solid var(--border); }
+            .nav ul li:last-child { border-bottom: none; }
+            .nav a { display: block; padding: 0.9rem 0; }
             .about-grid, .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
             .project-info-grid { grid-template-columns: 1fr; }
             .cards-grid { grid-template-columns: 1fr; }
@@ -379,24 +458,19 @@
     </style>
 </head>
 
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=AW-18405194462"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'AW-18405194462');
-</script>
-
 <body>
 
     <!-- HEADER -->
     <header class="header">
         <div class="container">
-            <img class="logo" src="data:image/svg+xml;base64,PLACEHOLDER_LOGO_BASE64" alt="Angels 77 Logo">
-            <nav class="nav">
+            <!-- Replace src with the real logo file (e.g. logo.svg) -->
+            <img class="logo" src="logo.svg" alt="Angels 77 Logo">
+            <button class="nav-toggle" id="navToggle" aria-expanded="false" aria-controls="siteNav" aria-label="Отвори менюто">
+                <span></span><span></span><span></span>
+            </button>
+            <nav class="nav" id="siteNav">
                 <ul>
-                    <li><a href="#hero">Начало</a></li>
+                    <li><a href="#hero">Началоoo</a></li>
                     <li><a href="#about">За нас</a></li>
                     <li><a href="#project">Проектът</a></li>
                     <li><a href="#details">Детайли</a></li>
@@ -407,7 +481,8 @@
     </header>
 
     <!-- HERO -->
-    <section id="hero" class="hero" style="background-image: url('data:image/png;base64,PLACEHOLDER_HERO_BASE64');">
+    <!-- Replace 'hero.jpg' with the real hero background image -->
+    <section id="hero" class="hero" style="background-image: url('hero.jpg');">
         <div class="hero-overlay"></div>
         <div class="container">
             <span class="hero-eyebrow">Програма за обучение 2025–2027</span>
@@ -554,12 +629,28 @@
                     </div>
                 </div>
 
-                <form class="contact-form" id="contactForm">
-                    <input type="text" name="name" placeholder="Твоето име" required>
-                    <input type="email" name="email" placeholder="Твоят имейл" required>
-                    <textarea name="message" rows="5" placeholder="Твоето съобщение" required></textarea>
+                <!-- action/method give a working fallback if JS fails to load -->
+                <form class="contact-form" id="contactForm" action="https://formsubmit.co/angelsenglish777@gmail.com" method="POST">
+                    <label class="sr-only" for="cf-name">Твоето име</label>
+                    <input type="text" id="cf-name" name="name" placeholder="Твоето име" required>
+
+                    <label class="sr-only" for="cf-email">Твоят имейл</label>
+                    <input type="email" id="cf-email" name="email" placeholder="Твоят имейл" required>
+
+                    <label class="sr-only" for="cf-message">Твоето съобщение</label>
+                    <textarea id="cf-message" name="message" rows="5" placeholder="Твоето съобщение" required></textarea>
+
+                    <!-- Honeypot: hidden from real visitors, bots tend to fill every field -->
+                    <div class="hp-field" aria-hidden="true">
+                        <label for="cf-honey">Не попълвайте това поле</label>
+                        <input type="text" id="cf-honey" name="_honey" tabindex="-1" autocomplete="off">
+                    </div>
+
+                    <input type="hidden" name="_subject" value="Ново запитване от Angels77 сайт">
+                    <input type="hidden" name="_captcha" value="true">
+
                     <button class="send-btn" type="submit">Изпрати съобщение</button>
-                    <p id="formStatus"></p>
+                    <p id="formStatus" role="status" aria-live="polite"></p>
                 </form>
             </div>
         </div>
@@ -570,6 +661,23 @@
     </footer>
 
     <script>
+    // Mobile nav toggle
+    (function () {
+        var toggle = document.getElementById('navToggle');
+        var nav = document.getElementById('siteNav');
+        toggle.addEventListener('click', function () {
+            var isOpen = nav.classList.toggle('is-open');
+            toggle.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+        });
+        nav.querySelectorAll('a').forEach(function (link) {
+            link.addEventListener('click', function () {
+                nav.classList.remove('is-open');
+                toggle.setAttribute('aria-expanded', 'false');
+            });
+        });
+    })();
+
+    // Contact form: progressive enhancement over the plain action/method fallback
     document.getElementById('contactForm').addEventListener('submit', async function (e) {
         e.preventDefault();
         const form = e.target;
@@ -596,6 +704,13 @@
             status.style.color = '#16a34a';
             status.textContent = 'Съобщението е изпратено успешно! Ще се свържем с вас скоро.';
             form.reset();
+
+            // Track the lead as an Ads conversion
+            if (typeof gtag === 'function') {
+                gtag('event', 'conversion', {
+                    'send_to': 'AW-18405194462' // TODO: append '/CONVERSION_LABEL' from your Ads account
+                });
+            }
         } catch (err) {
             status.style.color = '#dc2626';
             status.textContent = 'Възникна грешка. Моля, пишете директно на angelsenglish777@abv.bg';
