@@ -697,6 +697,13 @@
         const status = document.getElementById('formStatus');
         const btn = form.querySelector('.send-btn');
 
+        // Make each email's subject unique (name + timestamp) so Gmail
+        // doesn't group every submission into a single thread.
+        const senderName = form.querySelector('#cf-name').value.trim();
+        const stamp = new Date().toLocaleString('bg-BG');
+        form.querySelector('[name="_subject"]').value =
+            `Ново запитване от Angels77 сайт — ${senderName} (${stamp})`;
+
         status.style.display = 'block';
         status.style.color = '#6b7280';
         status.textContent = 'Изпращане...';
